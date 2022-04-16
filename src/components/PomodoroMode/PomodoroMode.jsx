@@ -32,10 +32,10 @@ function PomodoroMode({ setPomodoros }) {
                 if (cycles === 4) {
                     setMinutes(longRelaxTime);
                     setTimeActive("longRelaxTime");
+                    setPomodoros(pomodoros => pomodoros + 1);
                 } else {
                     setMinutes(relaxTime);
                     moreCycles()
-                    setPomodoros(pomodoros => pomodoros + 1);
                     setTimeActive("relaxTime");
                 }
             } else if (timeactive === "relaxTime") {
