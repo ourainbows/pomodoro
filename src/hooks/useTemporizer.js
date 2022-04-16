@@ -26,21 +26,24 @@ const useTemporizer = (time) => {
     useEffect(() => {
         if (timeRunning) {
             const interval = setInterval(() => {
-                lessSecond();
-            }, 1000);
-            if (seconds == 0) {
-                lessMinute();
-                restartSecond();
-                if (minutes === 0) {
-                    stopTime();
-                    setMinutes(0);  
-                    setSeconds(0);
-
-                    setTimeout(function () {
-                        audio.play();
-                    }, 150);
+                if (seconds > 0) {
+                    lessSecond();
                 }
-            }
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        stopTime();
+
+                        setTimeout(function () {
+                            audio.play();
+                        }, 150);
+                    }
+                    else {
+                        lessMinute();
+                        restartSecond();
+                    }
+                }
+            }, 1000);
+
             return () => clearInterval(interval);
         }
     });

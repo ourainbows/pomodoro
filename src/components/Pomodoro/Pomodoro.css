@@ -7,7 +7,8 @@
   width: 80%;
   margin: 0 auto;
 }
-.pomodoroContainer .clock {
+.pomodoroContainer .clock,
+.clockCycle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,13 +17,17 @@
   left: calc(50% - 10rem);
   width: 20rem;
 }
-.clock-dots {
+.clock-dots,
+.clockCycle div:nth-child(2) {
   font-size: 4rem;
   font-weight: bolder;
   margin: 0 0.8rem;
 }
 .clock-minutes,
-.clock-seconds {
+.clock-seconds,
+.clockCycle div:nth-child(1),
+.clockCycle div:nth-child(3)
+ {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -7,7 +7,7 @@ import settings from "../../assets/settings.svg"
 import PomodoroCounter from "../PomodoroCounter/PomodoroCounter";
 
 function App() {
-  const [mode, setMode] = useState("pomodoro");
+  const [mode, setMode] = useState("oneCycle");
   const [open, setOpen] = useState(false)
   const[pomodoros, setPomodoros] = useState(0)
   return (

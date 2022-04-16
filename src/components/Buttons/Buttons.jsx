@@ -1,16 +1,14 @@
 import "./Buttons.css";
 
 function Buttons({ children }) {
-    console.log(children.length);
     return (
         <>
-            {!children.length ?
+            {children.props.children.length > 2 ?
                 <div className="button-container">
                     {children}
                 </div> :
                 <div className="button-container buttons-cycle">
-                    {children[0]}
-                    {children[1]}
+                    {children}
                 </div>
             }
         </>

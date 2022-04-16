@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
 import useTemporizer from "../../hooks/useTemporizer";
+import Pomodoro from '../Pomodoro/Pomodoro';
+import Cycles from '../Cycles/Cycles';
+import Message from '../Message/Message';
+import Buttons from '../Buttons/Buttons';
+import pause from '../../assets/pause.svg';
 
 function OneCycleMode({ setPomodoros }) {
-    const workTime = 1;
+    const workTime = 100;
     const relaxTime = 2;
     const longRelaxTime = 2;
 
@@ -59,57 +64,72 @@ function OneCycleMode({ setPomodoros }) {
         } else if (!timeRunningBreak && secondsBreak === 0 && minutesBreak === 0) {
             if (timeActive === "relaxTime") {
                 setTimeActive("workTime");
-            } 
+            }
         }
     }, [timeRunning, timeRunningBreak])
 
     return (
-        <div>
-            <div>
+        <>
+            <Pomodoro>
                 {timeActive == "workTime" ?
-                    <div>
-                        {minutes.toString().length == 1 ? `0${minutes}` : minutes} :
-                        {seconds.toString().length == 1 ? `0${seconds}` : seconds}
-                    </div>
-                    : <div>
-                        {minutesBreak.toString().length == 1 ? `0${minutesBreak}` : minutesBreak} :
-                        {secondsBreak.toString().length == 1 ? `0${secondsBreak}` : secondsBreak}
-                    </div>}
-            </div>
-            <div>
-                {timeActive == "workTime" ?
-                    `Descanso restante:
-                     ${minutesBreak.toString().length == 1 ? `0${minutesBreak}` : minutesBreak}:
-                     ${secondsBreak.toString().length == 1 ? `0${secondsBreak}` : secondsBreak}` :
-                    `Trabajo restante:  
-                    ${minutes.toString().length == 1 ? `0${minutes}` : minutes}:
-                    ${seconds.toString().length == 1 ? `0${seconds}` : seconds}`
-                }
-                <br />
+                    <>
+                        <div>
+                            {minutes.toString().length == 1 ? `0${minutes}` : minutes}
+                        </div>
+                        <div>:</div>
+                        <div>
+                            {seconds.toString().length == 1 ? `0${seconds}` : seconds}
+                        </div>
+                    </>
+                    :
+                    <>
+                        <div>
+                            {minutesBreak.toString().length == 1 ? `0${minutesBreak}` : minutesBreak}
+                        </div>
+                        <div>:</div>
+                        <div>
+                            {secondsBreak.toString().length == 1 ? `0${secondsBreak}` : secondsBreak}
+                        </div>
+                    </>}
+            </Pomodoro>
+            <Cycles cyclesCount={cycles} quantity={1} />
+            <Message>
                 {timeActive == "workTime" ?
                     `Es momento de Trabajar!` :
                     timeActive == "relaxTime" ?
                         `Es momento de descansar!` :
                         `Es momento de tomarte un descanso largo!`
+                }<br />
+                {timeActive == "workTime" ?
+                    `Descanso restante:
+                     ${minutesBreak.toString().length == 1 ?
+                        `0${minutesBreak}` : minutesBreak}:${secondsBreak.toString().length == 1 ?
+                            `0${secondsBreak}` : secondsBreak}` :
+                    `Trabajo restante:  
+                    ${minutes.toString().length == 1 ?
+                        `0${minutes}` : minutes}:${seconds.toString().length == 1 ?
+                            `0${seconds}` : seconds}`
                 }
-            </div>
+            </Message>
 
-            {!timeRunning && !timeRunningBreak ?
-                <button onClick={timeActive == "workTime" ? startTime : startTimeBreak}>
-                    Iniciar
-                </button>
-                :
-                <>
-                    <button onClick={changeTimeActive}>
-                        {timeActive == "workTime" ? "Descansar" : "Trabajar"}
+            <Buttons>
+                {!timeRunning && !timeRunningBreak ?
+                    <button onClick={timeActive == "workTime" ? startTime : startTimeBreak}>
+                        Iniciar
                     </button>
+                    :
+                    <>
+                        <button onClick={changeTimeActive}>
+                            {timeActive == "workTime" ? "Descansar" : "Trabajar"}
+                        </button>
 
-                    <button onClick={timeActive == "workTime" ? stopTime : stopTimeBreak}>
-                        Pausar
-                    </button>
-                </>
-            }
-        </div>
+                        <button onClick={timeActive == "workTime" ? stopTime : stopTimeBreak}>
+                            <img src={pause} alt="pause" />
+                        </button>
+                    </>
+                }
+            </Buttons>
+        </>
     );
 };
 export default OneCycleMode

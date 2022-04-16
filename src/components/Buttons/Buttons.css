@@ -14,9 +14,10 @@
     background-color: var(--primary);
     color: var(--text);
 }
-.buttons-cycle:nth-child(1){
-    width: 15rem;
+
+.buttons-cycle button:nth-child(1){
+    width: 19rem;
 }
-.buttons-cycle:nth-child(2){
-    width: 5rem;
+.buttons-cycle button:nth-child(2){
+    width: 6rem;
 }

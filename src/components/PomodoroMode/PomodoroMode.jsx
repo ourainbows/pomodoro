@@ -7,9 +7,9 @@ import Message from '../Message/Message';
 import Buttons from '../Buttons/Buttons';
 
 function PomodoroMode({ setPomodoros }) {
-    const workTime = 1;
-    const relaxTime = 1;
-    const longRelaxTime = 1;
+    const workTime = 5;
+    const relaxTime = 5;
+    const longRelaxTime = 5;
 
     const [timeactive, setTimeActive] = useState("workTime");
 
@@ -26,16 +26,16 @@ function PomodoroMode({ setPomodoros }) {
         resetCycles
     } = useTemporizer(workTime);
 
-    useEffect(() => {
+    useEffect( () => {
         if (!timeRunning && seconds === 0 && minutes === 0) {
             if (timeactive === "workTime") {
-                if (cycles === 4) {
+                moreCycles() 
+                if (cycles === 3) { // 3 times because update state is async
                     setMinutes(longRelaxTime);
                     setTimeActive("longRelaxTime");
                     setPomodoros(pomodoros => pomodoros + 1);
                 } else {
                     setMinutes(relaxTime);
-                    moreCycles()
                     setTimeActive("relaxTime");
                 }
             } else if (timeactive === "relaxTime") {
@@ -50,11 +50,10 @@ function PomodoroMode({ setPomodoros }) {
     }, [timeRunning])
 
 
-
     return (
         <>
             <Pomodoro>
-                {minutes.toString().length == 1 ? `0${minutes}` : minutes} :
+                {minutes.toString().length == 1 ? `0${minutes}` : minutes} 
                 {seconds.toString().length == 1 ? `0${seconds}` : seconds}
             </Pomodoro>
             <Cycles cyclesCount={cycles} quantity={4} />
