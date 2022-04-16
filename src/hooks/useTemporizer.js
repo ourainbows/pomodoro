@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import notification from "./not.wav"
+import notification from "../assets/notification.wav";
 
 
 const useTemporizer = (time) => {
@@ -12,7 +12,7 @@ const useTemporizer = (time) => {
 
     const lessSecond = () => setSeconds(current => current - 1);
     const lessMinute = () => setMinutes(current => current - 1);
-    const restartSecond = () => setSeconds(5);
+    const restartSecond = () => setSeconds(2);
     const startTime = () => setTimeRunning(true);
     const stopTime = () => setTimeRunning(false);
     const moreCycles = () => setCycles(current => current + 1);

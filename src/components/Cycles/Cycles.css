@@ -1,0 +1,17 @@
+.cyclesContainer{
+    display: flex;
+    width: 50%;
+    margin: 2rem auto;
+    justify-content: space-evenly;
+}
+.cycle{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+.active{
+    background-color: var(--icons);
+}
+.inactive{
+    background-color: var(--icons-inactive);
+}

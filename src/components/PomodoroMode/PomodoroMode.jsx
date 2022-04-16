@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
-import './Pomodoro.css'
-import useTemporizer from "./useTemporizer";
 
-function Pomodoro() {
+import useTemporizer from "../../hooks/useTemporizer";
+import Pomodoro from '../Pomodoro/Pomodoro';
+import Cycles from '../Cycles/Cycles';
+import Message from '../Message/Message';
+import Buttons from '../Buttons/Buttons';
+
+function PomodoroMode({ setPomodoros }) {
     const workTime = 1;
-    const relaxTime = 2;
-    const longRelaxTime = 3;
+    const relaxTime = 1;
+    const longRelaxTime = 1;
 
     const [timeactive, setTimeActive] = useState("workTime");
 
@@ -31,6 +35,7 @@ function Pomodoro() {
                 } else {
                     setMinutes(relaxTime);
                     moreCycles()
+                    setPomodoros(pomodoros => pomodoros + 1);
                     setTimeActive("relaxTime");
                 }
             } else if (timeactive === "relaxTime") {
@@ -47,24 +52,34 @@ function Pomodoro() {
 
 
     return (
-        <div className='container'>
-            <div>
+        <>
+            <Pomodoro>
                 {minutes.toString().length == 1 ? `0${minutes}` : minutes} :
                 {seconds.toString().length == 1 ? `0${seconds}` : seconds}
-            </div>
-            <div>
-                {timeactive == "workTime" ? "Time to Work: " : timeactive == "relaxTime" ? "Time to Relax" : "Time to Long Relax"}
-            </div>
-            {!timeRunning ?
-                <button onClick={startTime}>
-                    Iniciar
-                </button>
-                :
-                <button onClick={stopTime}>
-                    Pausar
-                </button>
-            }
-        </div>
+            </Pomodoro>
+            <Cycles cyclesCount={cycles} quantity={4} />
+
+            <Message>
+                <p>
+                    {timeactive == "workTime" ?
+                        `Trabaja durante ${workTime} ${workTime > 1 ? "minutos" : "minuto"}` :
+                        timeactive == "relaxTime" ?
+                            "Tomate un pequeño descanso" :
+                            "Es hora de un largo descanso"}
+                </p>
+            </Message>
+            <Buttons>
+                {!timeRunning ?
+                    <button onClick={startTime}>
+                        Iniciar
+                    </button>
+                    :
+                    <button onClick={stopTime}>
+                        Pausar
+                    </button>
+                }
+            </Buttons>
+        </>
     );
 };
-export default Pomodoro
+export default PomodoroMode

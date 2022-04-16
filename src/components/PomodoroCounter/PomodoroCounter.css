@@ -1,0 +1,6 @@
+.pomodoroCounter{
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    font-size: 1.6rem;
+}

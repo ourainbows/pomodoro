@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import useTemporizer from "./useTemporizer";
+import useTemporizer from "../../hooks/useTemporizer";
 
-function OneCycleMode() {
+function OneCycleMode({ setPomodoros }) {
     const workTime = 1;
     const relaxTime = 2;
     const longRelaxTime = 2;
@@ -49,6 +49,7 @@ function OneCycleMode() {
                 setMinutesBreak(longRelaxTime);
                 setTimeActive("longRelaxTime");
                 moreCycles()
+                setPomodoros(pomodoros => pomodoros + 1);
             } else if (timeActive === "longRelaxTime" && secondsBreak === 0 && minutesBreak === 0) {
                 restartTime()
                 restartTimeBreak()
