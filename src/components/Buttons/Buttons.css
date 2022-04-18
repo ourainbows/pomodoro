@@ -13,6 +13,10 @@
     border-radius: 2px;
     background-color: var(--primary);
     color: var(--text);
+    cursor: pointer;
+}
+.button-container button:hover{
+    background-color: var(--secundary-tomato);
 }
 
 .buttons-cycle button:nth-child(1){

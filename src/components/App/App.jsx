@@ -83,7 +83,7 @@ function App() {
             <label>Modo</label>
             <select className="select-modal" onChange={onNewOption} name="mode">
               <option value="pomodoro">Pomodoro</option>
-              <option value="oneCycle">One Cycle</option>
+              <option value="oneCycle">Ciclo Único</option>
             </select>
           </div>
         </form>
