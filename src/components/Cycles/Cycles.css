@@ -1,6 +1,7 @@
 .cyclesContainer{
     display: flex;
     width: 50%;
+    max-width: 20rem;
     margin: 2rem auto;
     justify-content: space-evenly;
 }

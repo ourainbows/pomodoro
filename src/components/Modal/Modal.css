@@ -15,6 +15,8 @@
     position: relative;
     height: 40%;
     width: 80%;
+    max-width: 50rem;
+    max-height: 28rem;
     background-color: var(--background);    
 }
 .closeModal{
