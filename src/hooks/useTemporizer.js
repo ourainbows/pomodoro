@@ -4,9 +4,10 @@ import notification from "../assets/notification.wav";
 
 const useTemporizer = (time) => {
     const audio = new Audio(notification);
-
+    
     const [seconds, setSeconds] = useState(0)
     const [minutes, setMinutes] = useState(time)
+    
     const [timeRunning, setTimeRunning] = useState(false);
     const [cycles, setCycles] = useState(0);
 
@@ -47,6 +48,9 @@ const useTemporizer = (time) => {
             return () => clearInterval(interval);
         }
     });
+    useEffect(() => { 
+        setMinutes(time);
+    }, [time]);
     return {
         seconds,
         minutes,

@@ -1,0 +1,26 @@
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(35, 34, 34, 0.83);
+    z-index: 99999;
+}
+    
+.modal-content{
+    position: relative;
+    height: 40%;
+    width: 80%;
+    background-color: var(--background);    
+}
+.closeModal{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+}

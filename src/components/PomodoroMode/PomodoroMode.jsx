@@ -6,10 +6,7 @@ import Cycles from '../Cycles/Cycles';
 import Message from '../Message/Message';
 import Buttons from '../Buttons/Buttons';
 
-function PomodoroMode({ setPomodoros }) {
-    const workTime = 5;
-    const relaxTime = 5;
-    const longRelaxTime = 5;
+function PomodoroMode({ setPomodoros, workTime, relaxTime, longRelaxTime }) {
 
     const [timeactive, setTimeActive] = useState("workTime");
 

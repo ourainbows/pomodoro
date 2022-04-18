@@ -6,10 +6,7 @@ import Message from '../Message/Message';
 import Buttons from '../Buttons/Buttons';
 import pause from '../../assets/pause.svg';
 
-function OneCycleMode({ setPomodoros }) {
-    const workTime = 100;
-    const relaxTime = 2;
-    const longRelaxTime = 2;
+function OneCycleMode({ setPomodoros, workTime, relaxTime, longRelaxTime }) {
 
     const [timeActive, setTimeActive] = useState("workTime");
 
@@ -95,10 +92,10 @@ function OneCycleMode({ setPomodoros }) {
             <Cycles cyclesCount={cycles} quantity={1} />
             <Message>
                 {timeActive == "workTime" ?
-                    `Es momento de Trabajar!` :
+                    `Es momento de Trabajar` :
                     timeActive == "relaxTime" ?
-                        `Es momento de descansar!` :
-                        `Es momento de tomarte un descanso largo!`
+                        `Tomate un pequeño descanso` :
+                        `Es momento de tomarte un descanso largo`
                 }<br />
                 {timeActive == "workTime" ?
                     `Descanso restante:
