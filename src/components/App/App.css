@@ -1,6 +1,5 @@
 .settings-container {
-  display: flex;
-  justify-content: flex-end;
+  text-align: end;
   height: 2.8rem;
   margin: 4rem 2rem 3rem;
 }

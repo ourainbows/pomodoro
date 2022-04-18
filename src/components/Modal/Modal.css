@@ -17,6 +17,7 @@
     width: 80%;
     max-width: 50rem;
     max-height: 28rem;
+    min-height: 28rem;
     background-color: var(--background);    
 }
 .closeModal{
