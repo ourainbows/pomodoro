@@ -1,7 +1,12 @@
+.wrapper{
+  min-height: 52rem;
+}
+
 .settings-container {
   text-align: end;
   height: 2.8rem;
   margin: 4rem 2rem 3rem;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 .settings-container {
   cursor: pointer;

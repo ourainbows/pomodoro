@@ -31,7 +31,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="wrapper">
       <div className="settings-container">
         <img src={settings} alt="Rueda de ajustes" onClick={() => setOpen(true)} />
       </div>
@@ -92,7 +92,7 @@ function App() {
           <input className="button-modal button-save" form="formModal" type="submit" value="Guardar"/>
         </div>
       </Modal>
-    </>
+    </div>
   )
 }
 export default App;
