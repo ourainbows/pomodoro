@@ -13,7 +13,7 @@ const useTemporizer = (time) => {
 
     const lessSecond = () => setSeconds(current => current - 1);
     const lessMinute = () => setMinutes(current => current - 1);
-    const restartSecond = () => setSeconds(2);
+    const restartSecond = () => setSeconds(59);
     const startTime = () => setTimeRunning(true);
     const stopTime = () => setTimeRunning(false);
     const moreCycles = () => setCycles(current => current + 1);

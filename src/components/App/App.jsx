@@ -10,9 +10,9 @@ function App() {
   const [open, setOpen] = useState(false)
   const [pomodoros, setPomodoros] = useState(0)
   const [newOptions, setNewOptions] = useState({})
-  const [workTime, setWorkTime] = useState(1)
-  const [relaxTime, setRelaxTime] = useState(2)
-  const [longRelaxTime, setLongRelaxTime] = useState(2)
+  const [workTime, setWorkTime] = useState(25)
+  const [relaxTime, setRelaxTime] = useState(5)
+  const [longRelaxTime, setLongRelaxTime] = useState(30)
   const [mode, setMode] = useState("pomodoro");
 
   const saveOptions = (e) => {
